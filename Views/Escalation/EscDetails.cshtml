@@ -1,0 +1,417 @@
+﻿@model  IToversite.Models.Escalation
+
+@{
+    ViewBag.Title = "EscDetails";
+    Layout = "~/Views/Shared/Business_Layout.cshtml";
+
+}
+
+
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+
+
+/* Set a background color */
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width:100%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@@media screen and (max-width: 600px) {
+/* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+
+
+/* Full-width containers */
+  .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+/* Make sure that all arrows are pointing leftwards */
+  .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+/* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+    left: 15px;
+  }
+
+/* Make all right containers behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+</style>
+<h2 style="margin-left:30%;color:burlywood">Detailed View </h2>
+<hr />
+
+@Html.HiddenFor(model => model.EscId)
+
+@*<div style="margin-left:5%;" class="col-md-10">
+
+    <h4 class="col-md-5" style="color:orangered">  Title    @Html.TextBoxFor(model => @model.CRFOrHelpDeskTitle, new { @class = "form-control" })   </h4>   <br />
+    
+
+    <h4 class="col-md-5" style="color:orangered"> Impact  @Html.TextBoxFor(model => model.Impact, new { @class = "form-control" })</h4>   <br />
+    <h4 class="col-md-5" style="color:orangered"> Target Date  @Html.TextBoxFor(model => model.TrgDt, new { @class = "form-control" })</h4>   <br />
+    <h4 class="col-md-5" style="color:orangered"> Delayed Days    @Html.TextBoxFor(model => model.DaysDely, new { @class = "form-control" })  </h4>   <br />
+    <h4 class="col-md-5" style="color:orangered">  IT Owner  @Html.TextBoxFor(model => model.ITActOwn, new { @class = "form-control" })</h4>   <br />
+
+    <h4 class="col-md-5" style="color:orangered"> Company   @Html.TextBoxFor(model => model.GroupCompany, new { @class = "form-control" })</h4>   <br />
+    <h4 class="col-md-5" style="color:orangered"> Issue Details @Html.TextBoxFor(model => model.IssuDtls, new { @class = "form-control" })</h4>
+</div>*@
+
+<div class="row">
+    <div class="col-lg-6">
+        <section class="card">
+           
+            <label>Ticket No:</label>
+            @Html.LabelForModel(Model.CRFIdOrHelpdeskTicket, new { @class = "" }) 
+        </section>
+    </div>
+    <div class="col-lg-6 ">
+        <section class="card">
+            <label>Company:</label>
+            @Html.LabelForModel(Model.GroupCompany, new { @class = "" })
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-lg-12">
+        <section class="card">
+            <label>Title</label>
+            @Html.LabelForModel(Model.CRFOrHelpDeskTitle, new { @class = "" })
+
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <section class="card">
+            <label>Target Date:</label>
+            @Html.LabelForModel(Model.TrgDt, new { @class = "" })
+
+        </section>
+    </div>
+    <div class="col-lg-6 ">
+        <section class="card">
+            <label>Delay Days</label>
+            @Html.LabelForModel(Model.DaysDely.ToString(), new { @class = "" })
+
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <section class="card">
+            <label>Impact:</label>
+            @Html.LabelForModel(Model.Impact, new { @class = "" })
+
+        </section>
+    </div>
+    <div class="col-lg-6 ">
+        <section class="card">
+            <label>IT Owner</label>
+            @Html.LabelForModel(Model.ITActOwn, new { @class = "" })
+
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-lg-12">
+        <section class="card">
+            <label>Issue Details:</label>
+            @Html.LabelForModel(Model.IssuDtls, new { @class = "" })
+
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <h2>2017</h2>
+                @if (Model != null)
+                {
+
+                    foreach (var item in Model.DetailsList)
+                    {
+
+                        <div class="col-md-10" style="margin-left:17%">
+
+                            @Html.TextAreaFor(model => item.comment, new { @class = "form-control" })
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2016</h2>
+                <p>Lorem ipsum..</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <section class="card">
+
+           
+            <button class="btn btn-success btn-lg btn-block" style="background-color:green;" onclick="CloseTicket()">OK WITH THIS</button>
+        </section>
+    </div>
+    <div class="col-lg-6 ">
+        <section class="card">
+          
+            <button class="btn btn-danger btn-lg btn-block" style="background-color:red;" onclick="showText();">NOT OK WITH THIS</button>
+        </section>
+    </div>
+</div>
+
+
+<div class="form-group">
+
+    @if (Model != null)
+    {
+
+        foreach (var item in Model.DetailsList)
+        {
+
+            <div class="col-md-10" style="margin-left:17%">
+
+                @Html.TextAreaFor(model => item.comment, new { @class = "form-control" })
+            </div>
+        }
+    }
+
+</div>
+
+
+
+<div style="margin-left:5%;">
+
+
+
+
+    <br />
+
+    <hr />
+
+    <div class="col-md-10">
+
+        <div class="col-md-5">
+            <button style="background-color:green;" onclick="CloseTicket()">OK</button>
+        </div>
+
+        <div class="col-md-5">
+            <button style="background-color:red;" onclick="showText();">NOT OK</button>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-10">
+        <div class="col-md-5">
+        </div>
+
+        <div class="col-md-5">
+            <br />
+            @Html.TextAreaFor(model => model.UserComment, new { @class = "form-control", @style = "display:none" })
+            @Html.HiddenFor(model => model.UserComment)
+
+            <br />
+            <button class="button-group" id="btnsubmit" onclick="AddUserComment();" style="background-color:lightblue;display:none;">Submit</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+    function AddUserComment() {
+
+        $.ajax({
+            type: "POST",
+            url: "/Escalation/AddUserComment",
+            data: '{"id":' + $("#EscId").val() + ',"comment": "' + $("#UserComment").val() + '" }',
+
+            contentType: "application/json; charset=utf-8",
+
+            datatype: "json",
+            success: function (response) {
+                alert("Comment Added Successfully !");
+
+                window.location.href = "/Login/UserDashBoard/";
+
+
+            },
+            failure: function (response) {
+
+                alert(response.d);
+            },
+            error: function (response) {
+                alert(response.d);
+
+            }
+
+        });
+
+    }
+
+
+
+
+
+    function CloseTicket() {
+
+        $.ajax({
+            type: "POST",
+            url: "/Escalation/CloseTicket",
+            data: '{"id":' + $("#EscId").val() + '}',
+
+            contentType: "application/json; charset=utf-8",
+
+            datatype: "json",
+            success: function (response) {
+                alert("Ticket Closed Successfully !");
+
+                window.location.href = "/Login/UserDashBoard/";
+
+
+            },
+            failure: function (response) {
+
+                alert(response.d);
+            },
+            error: function (response) {
+                alert(response.d);
+
+            }
+
+        });
+
+    }
+
+
+
+    function showText() {
+
+        //alert('hi');
+
+        $("#UserComment").css("display", "block");
+        $("#btnsubmit").css("display", "block");
+
+    }
+
+</script>

@@ -1,0 +1,302 @@
+﻿@model IToversite.Models.Escalation
+
+@{
+    ViewBag.Title = "AddEscalation";
+    Layout = "~/Views/Shared/Business_Layout.cshtml";
+
+}
+
+@*<h2>Add Escalation</h2>
+
+<hr />*@
+
+
+@*<style>
+
+        .row {
+            margin-top: 5px;
+            background-color: transparent;
+        }
+
+        .div-main {
+        }
+    </style>*@
+
+
+<div class="">
+
+
+    <div class="section__content section__content--p30">
+
+        <div class="container-fluid">
+
+
+            <div class="row">
+                 
+            <div class="col-lg-6">
+
+                <div class="card">
+
+
+
+                    <div class="card-header">
+
+                        <div class="card-body">
+
+                            <div class="card-title">
+
+                                Add Escalation
+
+
+                            </div>
+
+                            @using (Html.BeginForm("AddEscalation", "Escalation", FormMethod.Post))
+                            {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                        <div class="form-group" style="display:none;">
+                            @Html.LabelFor(model => model.EscId, new { @class = "control-label mb-1" })
+                            @Html.TextBoxFor(model => model.EscId, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EscId, "", new { @class = "text-danger" })
+
+
+                        </div>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.GroupCompany, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.GroupCompany, new { @class = "form-control" , @placeholder="Company" })
+                            @Html.ValidationMessageFor(model => model.GroupCompany, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CRFIdOrHelpdeskTicket, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.CRFIdOrHelpdeskTicket, new { @class = "form-control", @placeholder = "Ticket" })
+                            @Html.ValidationMessageFor(model => model.CRFIdOrHelpdeskTicket, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.CRFOrHelpDeskTitle, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.CRFOrHelpDeskTitle, new { @class = "form-control", @placeholder = "Title" })
+                            @Html.ValidationMessageFor(model => model.CRFOrHelpDeskTitle, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Impact, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.Impact, new { @class = "form-control", @placeholder = "Impact" })
+                            @Html.ValidationMessageFor(model => model.Impact, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.TrgDate, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.TrgDate, new { @class = "form-control", @placeholder = "Target Date" })
+                            @Html.ValidationMessageFor(model => model.TrgDate, "", new { @class = "text-danger" })
+
+
+                            @Html.HiddenFor(model => model.TrgDt)
+
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.DaysDely, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.DaysDely, new { @class = "form-control", @placeholder = "Delay Days" })
+                            @Html.ValidationMessageFor(model => model.DaysDely, "", new { @class = "text-danger"})
+                        </div>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.ITActOwn, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.ITActOwn, new { @class = "form-control", @placeholder = "Owner" })
+                            @Html.ValidationMessageFor(model => model.ITActOwn, "", new { @class = "text-danger"})
+                        </div>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.IssuDtls, new { @class = "control-label col-md-2" })*@
+                            @Html.TextBoxFor(model => model.IssuDtls, new { @class = "form-control", @placeholder = "Issue Details" })
+                            @Html.ValidationMessageFor(model => model.IssuDtls, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="col-md-5">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-success btn-lg" />
+                            </div>
+                        </div>
+
+
+                            }
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+                @*@using (Html.BeginForm("AddEscalation", "Escalation", FormMethod.Post))
+                            {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                            <div class="col-md-5" style="display:none;">
+                                @Html.LabelFor(model => model.EscId, new { @class = "control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.EscId, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EscId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.GroupCompany, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.GroupCompany, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.GroupCompany, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.CRFIdOrHelpdeskTicket, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.CRFIdOrHelpdeskTicket, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CRFIdOrHelpdeskTicket, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.CRFOrHelpDeskTitle, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.CRFOrHelpDeskTitle, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CRFOrHelpDeskTitle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.Impact, new { @class = "control-label col-md-2 col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Impact, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Impact, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.TrgDate, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.TrgDate, new { @class = "form-control datepicker", @onchange = "getDate();" })
+
+                                    @Html.ValidationMessageFor(model => model.TrgDate, "", new { @class = "text-danger" })
+
+                                    @Html.HiddenFor(model => model.TrgDt)
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.DaysDely, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.DaysDely, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DaysDely, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.ITActOwn, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.ITActOwn, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ITActOwn, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.IssuDtls, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.IssuDtls, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.IssuDtls, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-5">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-success btn-lg" />
+                                </div>
+                            </div>
+
+                            }*@
+
+                        </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+ 
+
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#TrgDate").datepicker({
+
+                dateFormat: "mm-dd-yy",
+                changemonth: true,
+                changeyear: true,
+
+            });
+        });
+
+        function getDate() {
+
+            //alert($("#TrgDate").val());
+
+            $("#TrgDt").val($("#TrgDate").val());
+
+        }
+
+
+
+
+    </script>
+
+
+
+
+}
+
+

@@ -1,0 +1,121 @@
+﻿@model IToversite.Models.UserDashBoard
+
+@{
+    ViewBag.Title = "UserDashBoard";
+    Layout = "~/Views/Shared/Business_Layout.cshtml";
+}
+ 
+   
+    <div  id="divTable" style="margin-top:.5%" >
+
+        <table id="tblEscUsr"  cellpadding="0" class="table table-borderless table-striped table-earning" >
+
+            <thead>
+
+                <tr>
+                    <th>Title</th> 
+                    <th>Group</th> 
+                    <th>Action</th>
+
+
+                </tr>
+
+
+            </thead>
+
+
+
+
+        </table>
+
+
+        <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+
+         
+
+    </div>
+ 
+
+ 
+
+
+
+
+
+
+
+
+@section Scripts{
+
+
+    <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "/Login/GetList",
+                data: '{}',
+
+                contentType: "application/json; charset=utf-8",
+
+                datatype: "json",
+                success: function (response) {
+
+                    $("#tblEscUsr").DataTable(
+
+                        {
+                            //bLengthChange: true,
+                            //lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                            //bFilter: true,
+                            //bSort: true,
+                            //bPaginate: true,
+                            data: response,
+                             info: false,
+                            
+                            columns: [{ 'data': 'CRFOrHelpDeskTitle' },
+                           // { 'data': 'IssuDtls' },
+
+                                { 'data': 'GroupCompany' },
+
+                                { 'data':'Action'}
+
+                                //{
+                                //    render: function ()
+                                //    {
+                                //        //return ''
+                                //       // return '<a href="/Escalation/EscDetails">select</a>';
+                                //    }
+
+                                //}
+
+                            ] 
+
+                        }
+
+                    );
+
+
+                },
+                failure: function (response) {
+
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+
+                }
+
+            });
+
+           // $("#divTab").css("display", "block");          
+
+        });
+
+
+       
+
+    </script>
+}
