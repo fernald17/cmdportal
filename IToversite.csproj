@@ -138,6 +138,16 @@
     <Compile Include="Models\UserDashBoard.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Class1.cs" />
+    <Compile Include="Repository\EscalationRep.cs" />
+    <Compile Include="Repository\LoginRep.cs" />
+    <Compile Include="Repository\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="Repository\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="Repository\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Repository\obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="Repository\obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="Repository\obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Repository\Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -365,12 +375,62 @@
     <Content Include="js\main.js" />
     <Content Include="js\moment.js" />
     <Content Include="media\9606031aabebde32fa96edeff071a132.jpg" />
+    <Content Include="Repository\bin\Debug\IToversite.dll" />
+    <Content Include="Repository\bin\Debug\IToversite.pdb" />
+    <Content Include="Repository\bin\Debug\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="Repository\bin\Debug\Repository.dll" />
+    <Content Include="Repository\bin\Debug\Repository.pdb" />
+    <Content Include="Repository\bin\Debug\System.Web.Mvc.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.Mvc.xml" />
+    <Content Include="Repository\bin\Debug\System.Web.Optimization.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.Optimization.xml" />
+    <Content Include="Repository\bin\Debug\System.Web.Razor.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.Razor.xml" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.Deployment.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.Deployment.xml" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.Razor.dll" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.Razor.xml" />
+    <Content Include="Repository\bin\Debug\System.Web.WebPages.xml" />
+    <Content Include="Repository\bin\Release\IToversite.dll" />
+    <Content Include="Repository\bin\Release\IToversite.pdb" />
+    <Content Include="Repository\bin\Release\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="Repository\bin\Release\Repository.dll" />
+    <Content Include="Repository\bin\Release\Repository.pdb" />
+    <Content Include="Repository\bin\Release\System.Web.Mvc.dll" />
+    <Content Include="Repository\bin\Release\System.Web.Mvc.xml" />
+    <Content Include="Repository\bin\Release\System.Web.Optimization.dll" />
+    <Content Include="Repository\bin\Release\System.Web.Optimization.xml" />
+    <Content Include="Repository\bin\Release\System.Web.Razor.dll" />
+    <Content Include="Repository\bin\Release\System.Web.Razor.xml" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.Deployment.dll" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.Deployment.xml" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.dll" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.Razor.dll" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.Razor.xml" />
+    <Content Include="Repository\bin\Release\System.Web.WebPages.xml" />
+    <Content Include="Repository\obj\Debug\Repository.csproj.FileListAbsolute.txt" />
+    <Content Include="Repository\obj\Debug\Repository.dll" />
+    <Content Include="Repository\obj\Debug\Repository.pdb" />
+    <Content Include="Repository\obj\Release\Repository.csproj.FileListAbsolute.txt" />
+    <Content Include="Repository\obj\Release\Repository.dll" />
+    <Content Include="Repository\obj\Release\Repository.pdb" />
+    <Content Include="Repository\Repository.csproj" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Repository\bin\Debug\IToversite.dll.config" />
+    <Content Include="Repository\bin\Release\IToversite.dll.config" />
+    <Content Include="Repository\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Repository\obj\Debug\Repository.csproj.CopyComplete" />
+    <Content Include="Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache" />
+    <Content Include="Repository\obj\Debug\Repository.csprojAssemblyReference.cache" />
+    <Content Include="Repository\obj\Release\Repository.csproj.CopyComplete" />
+    <Content Include="Repository\obj\Release\Repository.csproj.CoreCompileInputs.cache" />
+    <Content Include="Repository\obj\Release\Repository.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -680,6 +740,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Repository\obj\Debug\TempPE\" />
+    <Folder Include="Repository\obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
